@@ -29,7 +29,7 @@ function moveDodgerLeft() {
   const left = parseInt(leftNumbers, 10);
 
   if (left > 0) {
-    dodger.style.left = `${left - 5}px`;
+    dodger.style.left = `${left - 15}px`;
     playSoundOnMovement();
   } else {
     playSoundOnGameOver();
@@ -41,7 +41,7 @@ function moveDodgerRight() {
   const left = parseInt(leftNumbers, 10); // unchanged
 
   if (left < 360) {
-    dodger.style.left = `${left + 5}px`;
+    dodger.style.left = `${left + 15}px`;
     playSoundOnMovement();
   } else {
     playSoundOnGameOver();
@@ -53,7 +53,7 @@ function moveDodgerUp() {
   const bottom = parseInt(bottomNumbers, 10);
 
   if (bottom < 360) {
-    dodger.style.bottom = `${bottom + 5}px`;
+    dodger.style.bottom = `${bottom + 15}px`;
     playSoundOnMovement();
   } else {
     playSoundOnGameOver();
@@ -65,14 +65,14 @@ function moveDodgerDown() {
   const bottom = parseInt(bottomNumbers, 10);
 
   if (bottom > 0) {
-    dodger.style.bottom = `${bottom - 5}px`;
+    dodger.style.bottom = `${bottom - 15}px`;
     playSoundOnMovement();
   } else {
     playSoundOnGameOver();
   }
 }
 
-// Afspiller lyde ved bevægelse
+// Afspiller lyd ved bevægelse
 const moveSound = document.getElementById("movementSound");
 
 function playSoundOnMovement() {
@@ -80,7 +80,7 @@ function playSoundOnMovement() {
   moveSound.play();
 }
 
-// Afspiller lyde ved kollation med væg
+// Afspiller lyd ved kollation med væg
 const gameoverSound = document.getElementById("gameoverSound");
 
 function playSoundOnGameOver() {
