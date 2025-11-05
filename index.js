@@ -3,7 +3,7 @@
 const dodger = document.getElementById("dodger");
 dodger.style.backgroundColor = "#000000";
 dodger.style.backgroundColor = "#FF69B4";
-dodger.style.left = "180px";  // Start i midten horisontalt
+dodger.style.left = "180px"; // Start i midten horisontalt
 dodger.style.bottom = "180px"; // Start i midten vertikalt
 
 document.addEventListener("keydown", function (e) {
@@ -31,6 +31,7 @@ function moveDodgerLeft() {
   if (left > 0) {
     dodger.style.left = `${left - 1}px`;
     playSoundOnMovement();
+    playSoundOnGameOver();
   }
 }
 
@@ -41,6 +42,7 @@ function moveDodgerRight() {
   if (left < 360) {
     dodger.style.left = `${left + 1}px`;
     playSoundOnMovement();
+    playSoundOnGameOver();
   }
 }
 
@@ -51,6 +53,7 @@ function moveDodgerUp() {
   if (bottom < 360) {
     dodger.style.bottom = `${bottom + 1}px`;
     playSoundOnMovement();
+    playSoundOnGameOver
   }
 }
 
@@ -61,12 +64,22 @@ function moveDodgerDown() {
   if (bottom > 0) {
     dodger.style.bottom = `${bottom - 1}px`;
     playSoundOnMovement();
+    playSoundOnGameOver();
   }
 }
 
+// Afspiller lyde ved bevægelse
 const moveSound = document.getElementById("movementSound");
 
 function playSoundOnMovement() {
   moveSound.currentTime = 0;
   moveSound.play();
+}
+
+// Afspiller lyde ved kollation med væg
+const gameoverSound = document.getElementById("gameoverSound");
+
+function playSoundOnGameOver() {
+  gameoverSound.currentTime = 0;
+  gameoverSound.play();
 }
