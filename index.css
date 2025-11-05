@@ -1,8 +1,11 @@
 #dodger {
-  background-color: white;
+  /* background-color: white;
   height: 20px;
   position: absolute;
+  width: 40px; */
   width: 40px;
+  height: 40px;
+  position: absolute;
 }
 
 #game {
