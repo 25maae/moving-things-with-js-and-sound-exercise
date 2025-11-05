@@ -3,6 +3,8 @@
 const dodger = document.getElementById("dodger");
 dodger.style.backgroundColor = "#000000";
 dodger.style.backgroundColor = "#FF69B4";
+dodger.style.left = "180px";  // Start i midten horisontalt
+dodger.style.bottom = "180px"; // Start i midten vertikalt
 
 document.addEventListener("keydown", function (e) {
   if (e.key === "ArrowLeft") {
@@ -16,9 +18,10 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "ArrowUp") {
     moveDodgerUp();
   }
-    if (e.key === "ArrowDown") {
+  if (e.key === "ArrowDown") {
     moveDodgerDown();
   }
+  console.log(e.key); // Viser hvilken tast der er trykket
 });
 
 function moveDodgerLeft() {
@@ -27,6 +30,7 @@ function moveDodgerLeft() {
 
   if (left > 0) {
     dodger.style.left = `${left - 1}px`;
+    playSoundOnMovement();
   }
 }
 
@@ -34,8 +38,9 @@ function moveDodgerRight() {
   const leftNumbers = dodger.style.left.replace("px", ""); // unchanged
   const left = parseInt(leftNumbers, 10); // unchanged
 
-    if (left < 360) {
+  if (left < 360) {
     dodger.style.left = `${left + 1}px`;
+    playSoundOnMovement();
   }
 }
 
@@ -45,6 +50,7 @@ function moveDodgerUp() {
 
   if (bottom < 360) {
     dodger.style.bottom = `${bottom + 1}px`;
+    playSoundOnMovement();
   }
 }
 
@@ -54,7 +60,13 @@ function moveDodgerDown() {
 
   if (bottom > 0) {
     dodger.style.bottom = `${bottom - 1}px`;
+    playSoundOnMovement();
   }
 }
 
-const moveSound = document.getElementById("move-sound");
+const moveSound = document.getElementById("movementSound");
+
+function playSoundOnMovement() {
+  moveSound.currentTime = 0;
+  moveSound.play();
+}
