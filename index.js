@@ -30,6 +30,7 @@ function moveDodgerLeft() {
 
   if (left > 0) {
     dodger.style.left = `${left - 15}px`;
+    dodger.style.transform = "scaleX(-1)"; // Vend billedet horisontalt
     playSoundOnMovement();
   } else {
     playSoundOnGameOver();
@@ -42,6 +43,7 @@ function moveDodgerRight() {
 
   if (left < 360) {
     dodger.style.left = `${left + 15}px`;
+    dodger.style.transform = "scaleX(+1)"; // Vend billedet horisontalt
     playSoundOnMovement();
   } else {
     playSoundOnGameOver();
@@ -54,6 +56,7 @@ function moveDodgerUp() {
 
   if (bottom < 360) {
     dodger.style.bottom = `${bottom + 15}px`;
+    dodger.style.transform = "rotate(-90deg)"; // rotér billedet vertikalt
     playSoundOnMovement();
   } else {
     playSoundOnGameOver();
@@ -66,6 +69,7 @@ function moveDodgerDown() {
 
   if (bottom > 0) {
     dodger.style.bottom = `${bottom - 15}px`;
+    dodger.style.transform = "rotate(90deg)"; // rotér billedet vertikalt
     playSoundOnMovement();
   } else {
     playSoundOnGameOver();
